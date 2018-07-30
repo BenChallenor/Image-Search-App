@@ -44,5 +44,7 @@ function displayImages(images) {
     imageElement.src = image.largeImageURL;
     // sets the url
     imageSection.appendChild(imageElement);
-  })
+  });
+  loadingImage.style.display = 'none';
+  // loading image goes away once images are received
 }
