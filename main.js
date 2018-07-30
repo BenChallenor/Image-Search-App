@@ -15,18 +15,28 @@ function formSubmitted(event) {
   // stops form from refreshing by default the form tries to send the data somewhere
   const searchTerm = input.value;
   // gets the value of the search input
-  search(searchTerm);
+  search(searchTerm)
+    .then(displayImages);
 }
 
 function search(searchTerm) {
-  const url = `${API_URL}&q=${searchTerm}&image_type=photo`;
+  const url = `${API_URL}&q=${searchTerm}`;
   loadingImage.style.display = '';
   // shows image when page is loading
-  fetch(url)
-  // fetch -> promise based, needs a response
-  .then(response => response.json())
-  // access to the response object, this will also return a promise
-  .then(result => {
-    console.log(result);
-  });
+  return fetch(url)
+    // by returning fetch - search now returns a promise
+    // fetch -> promise based, needs a response
+    .then(response => response.json())
+    // access to the response object, this will also return a promise
+    .then(result => {
+      return result.hits;
+      // promise returns hits array
+    });
+}
+
+function displayImages(images) {
+  images.forEach(image => {
+    console.log(image.largeImageURL);
+    // itterates over each array
+  })
 }
