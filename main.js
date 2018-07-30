@@ -1,5 +1,6 @@
 const API_URL = 'https://pixabay.com/api/?key=259184-e70235f90504f45f70d70e0e3';
 const loadingImage = document.querySelector("#loadingImage");
+const imageSection = document.querySelector(".images");
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 // stores input as a variable
@@ -38,5 +39,10 @@ function displayImages(images) {
   images.forEach(image => {
     console.log(image.largeImageURL);
     // itterates over each array
+    const imageElement = document.createElement('img');
+    // create img tag
+    imageElement.src = image.largeImageURL;
+    // sets the url
+    imageSection.appendChild(imageElement);
   })
 }
