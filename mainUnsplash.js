@@ -1,4 +1,5 @@
-const API_URL = `https://api.unsplash.com/search/photos?page=1&per_page=30&client_id=34584933d66ade5739975a26451889b345ca1e59f0763fc4901ac90aee0c518f`;
+const unsplashKey = config.UNSPLASH_KEY;
+const API_URL = `https://api.unsplash.com/search/photos?page=1&per_page=30&client_id=` + unsplashKey;
 const loadingImage = document.querySelector("#loadingImage");
 const imageSection = document.querySelector(".images");
 const form = document.querySelector("form");

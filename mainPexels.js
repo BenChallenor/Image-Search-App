@@ -1,3 +1,4 @@
+const pexelsKey = config.PEXELS_KEY;
 const DATA = 'https://api.pexels.com/v1/search?query=';
 const loadingImage = document.querySelector("#loadingImage");
 const imageSection = document.querySelector(".images");
@@ -20,7 +21,7 @@ function search(searchTerm) {
   const url = `${DATA}${searchTerm}&per_page=40`;
   const id = {
     headers: {
-      'Authorization': '563492ad6f91700001000001abe95696450b49dd98f53392a55c1c21'
+      'Authorization': pexelsKey
     }
   }
   imageSection.innerHTML = '';

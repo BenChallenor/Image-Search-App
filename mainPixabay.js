@@ -1,4 +1,5 @@
-const API_URL = 'https://pixabay.com/api/?key=259184-e70235f90504f45f70d70e0e3';
+const pixabayKey = config.PIXABAY_KEY;
+const API_URL = 'https://pixabay.com/api/?key=' + pixabayKey;
 const loadingImage = document.querySelector("#loadingImage");
 const imageSection = document.querySelector(".images");
 const form = document.querySelector("form");
@@ -22,6 +23,8 @@ function formSubmitted(event) {
 
 function search(searchTerm) {
   const url = `${API_URL}&q=${searchTerm}&per_page=200&image_type=photo`;
+  loadingImage.style.display = '';
+  // shows image when page is loading
   imageSection.innerHTML = '';
   // clears the page before search
   return fetch(url)
@@ -34,8 +37,6 @@ function search(searchTerm) {
       return result.hits;
       // promise returns hits array
     });
-  loadingImage.style.display = '';
-  // shows image when page is loading
 }
 
 function displayImages(images) {
