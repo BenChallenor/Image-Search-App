@@ -24,13 +24,13 @@ function search(searchTerm) {
       'Authorization': pexelsKey
     }
   }
+  loadingImage.style.display = '';
   imageSection.innerHTML = '';
   return fetch(url, id)
     .then(response => response.json())
     .then(result => {
       return result.photos;
     });
-  loadingImage.style.display = '';
 }
 
 function displayImages(images) {
