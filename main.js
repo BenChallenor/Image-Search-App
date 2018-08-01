@@ -21,23 +21,26 @@ function formSubmitted(event) {
 }
 
 function search(searchTerm) {
-  const url = `${API_URL}&q=${searchTerm}`;
-  loadingImage.style.display = '';
-  // shows image when page is loading
+  const url = `${API_URL}&q=${searchTerm}&per_page=200&image_type=photo`;
+  imageSection.innerHTML = '';
+  // clears the page before search
   return fetch(url)
     // by returning fetch - search now returns a promise
     // fetch -> promise based, needs a response
     .then(response => response.json())
     // access to the response object, this will also return a promise
     .then(result => {
+      // console.log(result);
       return result.hits;
       // promise returns hits array
     });
+  loadingImage.style.display = '';
+  // shows image when page is loading
 }
 
 function displayImages(images) {
   images.forEach(image => {
-    console.log(image.largeImageURL);
+    // console.log(image.largeImageURL);
     // itterates over each array
     const imageElement = document.createElement('img');
     // create img tag
