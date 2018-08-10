@@ -34,7 +34,6 @@ function search(searchTerm) {
 }
 
 function displayImages(images) {
-  console.log(images)
   images.forEach(image => {
     const imageElement = document.createElement('img');
     imageElement.src = image.src.large2x;

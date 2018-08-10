@@ -22,7 +22,6 @@ function search(searchTerm) {
   return fetch(url)
     .then(response => response.json())
     .then(result => {
-      console.log(result.photos);
       return (result.photos.photo);
     });
 }
